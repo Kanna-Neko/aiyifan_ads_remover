@@ -24,15 +24,14 @@
     }
     function main_work(element) {
         console.log("start bind",element);
-        let ad = document.querySelector('.publicbox.ng-star-inserted')?.remove();
         var observerOptions = {
             childList: true, // 观察目标子节点的变化，是否有添加或者删除
             attributes: true, // 观察属性变动
             subtree: true, // 观察后代节点，默认为 false
         };
         function callback(mutationList, observer) {
+            document.querySelector('.publicbox.ng-star-inserted')?.remove();
             document.querySelector('vg-pause-f')?.remove();
-            console.log("change", mutationList);
         }
 
         var observer = new MutationObserver(callback);
